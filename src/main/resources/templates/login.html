@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>OAuth2 Login AWS Cognito</title>
+  <!-- CSS & JS for Bootstrap-->
+</head>
+<body>
+<div class="container">
+  <div>
+    
+    <! -- more to come -->
+
+    <div sec:authorize="isAnonymous()">
+      <a class="btn btn-primary" th:href="@{/oauth2/authorization/cognito}" role="button">
+        Log in with Amazon Cognito
+      </a>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+      <form method="post" th:action="@{/logout}">
+        <input type="submit" class="btn btn-danger" value="Logout"/>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

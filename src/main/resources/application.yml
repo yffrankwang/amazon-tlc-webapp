@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            clientId: 1b9iv71jk7ubo3m1dvsp7qtvg0
+            clientSecret: 9gqvd4ghu4bvolridht9aja151l0utos8k4jh8k1k3jdvuvoaie
+            scope: openid, email
+            authorization-grant-type: authorization_code
+            redirec-uri: "{baseUrl}/login/oauth2/code/cognito"
+            clientName: amazon-tlc-webapp
+        provider:
+          cognito:
+            issuerUri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_KosMZr22M
+            authorization-uri: https://tlc.auth.us-east-1.amazoncognito.com/oauth2/authorize
+            token-uri: https://tlc.auth.us-east-1.amazoncognito.com/oauth2/token
+            jwk-set-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_KosMZr22M/.well-known/jwks.json
+            userNameAttribute: username
+
